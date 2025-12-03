@@ -4,7 +4,8 @@ const images = [
 { src: "https://lh3.googleusercontent.com/d/1Y7meayhzN7M3Oy0DrVGiiOEDvYtFDh2a=w1200",
         alt: "DTA App",
         categories: ["product design", "digital"],
-        group: ["https://lh3.googleusercontent.com/d/1j5qKxY-NJVM0dgIREv00jfPGrFuFK2Ey=w1200", "https://lh3.googleusercontent.com/d/1b01BD7GA7y1bbSf_aWEnE8WTX8aaG6xm=w1200"],
+        group: ["https://lh3.googleusercontent.com/d/1j5qKxY-NJVM0dgIREv00jfPGrFuFK2Ey=w1200", 
+                "https://lh3.googleusercontent.com/d/1b01BD7GA7y1bbSf_aWEnE8WTX8aaG6xm=w1200"],
         text: "Type: Phone Application \nFunction: Developer \n\nDTA: Digital Traveling Agency redefines global exploration. It connects you to a network of real-world travelers, delivering real-time experiences directly. DTA utilizes global Local Explorers for micro-trips—hiring them for personalized, live-streamed tours of their immediate area (e.g., a Parisian coffee shop). Alternatively, become a Global Contributor to fund DTA Travelers on macro-journeys (like backpacking Asia), receiving exclusive content and influencing their travels with real-time tips. DTA is a social network for genuine, real-time exploration. You gain the experience; they gain support. Travel the world without moving."
     },
 { src: "https://lh3.googleusercontent.com/d/1It6_fexSflYCfj_h6NhbUvr6yZZkVF2Y=w1200",
