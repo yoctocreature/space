@@ -75,7 +75,7 @@ const images = [
     },
 
 {
-        src: "https://lh3.googleusercontent.com/d/1I7S1LB7e2FaIMDz9Zz6Fm5Ipwug2uqmF=w1200",
+        src: "https://lh3.googleusercontent.com/d/1zVHdufX4_hPyTN6rq9LWXfoaFc28RieA/view?usp=w1200",
         alt: "Kiiroo",
         categories: ["product"],
         group: ["https://lh3.googleusercontent.com/d/1MHFNJLvORYda51aFe-JtrivM-k4TcXG-=w1200"],
