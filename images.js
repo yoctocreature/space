@@ -75,7 +75,7 @@ const images = [
 
 {
         src: "https://lh3.googleusercontent.com/d/1zVHdufX4_hPyTN6rq9LWXfoaFc28RieA=w1200",
-        alt: "Kiiroo",
+        alt: "Hobicon",
         categories: ["product"],
         group: ["https://lh3.googleusercontent.com/d/1MHFNJLvORYda51aFe-JtrivM-k4TcXG-=w1200"],
         text: "KIIROO pioneers adult entertainment technology, developing remote devices for synchronised intimate experiences. Their innovation transmits real-time touch sensations, often synced with video or other users, to bridge the physical gap in relationships. KIIROO empowers users to explore new dimensions of virtual intimacy, whether solo, with a partner, or with content creators, making connections feel more real and enhancing sexual experiences through technology."
