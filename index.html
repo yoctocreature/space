@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>四</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/1UFrODqv45COGepKJ8zSOX1HVJYTz7GmC=w1200" />
+  
+  <style>
+    :root {
+      --menu-open: 250px;
+      --menu-collapsed: 60px;
+      --menu-pad: 20px;
+      --header-height: 80px;
+      --page-gutter: 20px;
+      --header-bg-rgb: 255, 255, 255;
+      --header-bg-opacity: 0.5;
+    }
+
+    /* Layout */
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+
+    /* Sidebar */
+    .left-menu {
+      width: var(--menu-open);
+      background: #fff;
+      transition: width 0.3s ease, padding 0.3s ease;
+      overflow: hidden;
+      position: relative;
+      box-sizing: border-box;
+      padding: var(--menu-pad);
+    }
+
+    .left-menu.collapsed {
+      width: var(--menu-collapsed);
+      padding: var(--menu-pad) 5px;
+    }
+
+    .left-menu nav { margin-top: 100px; }
+    .left-menu.collapsed nav { display: none; }
+    .left-menu ul { list-style: none; padding: 0; margin: 0; }
+    .left-menu li { margin-bottom: 6px; position: relative; }
+    .menu-btn {
+      background: none;
+      border: none;
+      padding: 5px 0;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      color: #333;
+      font: inherit;
+      display: block;
+      user-select: none;
+    }
+    .has-dropdown .menu-btn::after {
+      content: "▸";
+      float: right;
+      transition: transform 0.2s ease;
+    }
+    .has-dropdown.open .menu-btn::after { transform: rotate(90deg); }
+    .dropdown {
+      font-size: 14px;
+      color: #333;
+      margin-top: 8px;
+      padding-left: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .has-dropdown.open .dropdown { max-height: 800px; }
+
+    /* Work dropdown specific styling */
+    #workItem .dropdown {
+      white-space: normal;
+      padding-left: 0;
+      line-height: 1.4;
+    }
+    #workItem .dropdown .submenu-row {
+      display: block;
+      margin-bottom: 4px;
+    }
+    #workItem .dropdown .submenu-btn {
+      background: none;
+      border: none;
+      font-size: 14px;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      color: #333;
+      display: inline;
+    }
+    #workItem .dropdown .submenu-btn:not(:last-child)::after {
+      content: "•";
+      margin-right: 8px;
+      margin-left: 8px;
+      color: #555;
+    }
+    
+    /* Header submenu buttons: same style as sidebar submenu */
+    .header .submenu-btn {
+      background: none;
+      border: none;
+      font-size: 14px;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      color: #333;
+      display: inline;
+      font-family: inherit;
+    }
+    .header .submenu-btn:not(:last-child)::after {
+      content: "•";
+      margin-right: 8px;
+      margin-left: 8px;
+      color: #555;
+    }
+
+
+    /* Right content layout */
+    .right-content {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* --- UPDATED HEADER CSS --- */
+    .header {
+      display: flex;
+      flex-direction: column; /* Stack logo and menu vertically */
+      align-items: flex-start; /* Align logo and menu to the left */
+      height: auto; /* Allow height to adjust for logo + menu */
+      background: rgba(var(--header-bg-rgb), var(--header-bg-opacity));
+      z-index: 100;
+      position: sticky;
+      top: 0;
+      padding: 0;
+    }
+    .header .align-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: var(--header-height); /* Keep logo section height fixed */
+      width: 100%;
+      box-sizing: border-box;
+      padding-left: var(--page-gutter);
+      padding-right: var(--page-gutter);
+     }
+    .header img {
+      width: 150px;
+      height: auto;
+      display: block;
+    }
+
+    
+    /* New menu container positioning */
+    .work-category-menu {
+      display: none; /* HIDDEN BY DEFAULT */
+      align-items: center;
+      line-height: 1.4;
+      white-space: nowrap;
+      
+      /* Positioning below the logo */
+      width: 100%;
+      padding: 0 var(--page-gutter) 10px 10px;
+      box-sizing: border-box;
+    }
+
+    /* SHOW WHEN ACTIVE */
+    .work-category-menu.is-active {
+        display: flex;
+    }
+    /* --- END UPDATED HEADER CSS --- */
+
+    /* Scrollable content */
+    .content-area {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0;
+      box-sizing: border-box;
+      background: transparent;
+    }
+    .align-wrapper {
+      width: 100%;
+      box-sizing: border-box;
+      padding-left: var(--page-gutter);
+      padding-right: var(--page-gutter);
+    }
+
+    /* Video */
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+    }
+    .video-wrapper video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Work iframe wrapper */
+    .work-iframe-wrapper {
+      /* Height calculation adjusted since header height is now dynamic, but we keep the old logic for simplicity */
+      height: calc(100vh - 120px); /* Adjusted for assumed header height ~80px + menu padding ~40px */
+      width: calc(100% + 40px);
+      border: none;
+      overflow: hidden;
+      margin-left: -20px;
+      margin-right: -20px;
+    }
+    .work-iframe-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: transparent;
+    }
+
+    /* Gallery */
+    .work-gallery {
+      column-count: 3;
+      column-gap: 5px;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 20px;
+      margin: 0;
+      background: white;
+    }
+    .work-gallery img {
+      width: 100%;
+      margin-bottom: 5px;
+      display: block;
+      break-inside: avoid;
+      padding: 0;
+      margin-left: 0;
+      margin-right: 0;
+      cursor: pointer;
+    }
+    @media (max-width: 1024px) {
+      .work-gallery { column-count: 2; }
+    }
+    @media (max-width: 768px) {
+      .work-gallery { column-count: 1; }
+    }
+
+    /* === LIGHTBOX UPDATES === */
+
+    /* Lightbox base: allow scrolling and prevent container from forcing a new layout */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      overflow-y: auto; /* allow scrolling if group is tall */
+    }
+
+    /* Lightbox Container: neutral sizing (no forced height) */
+    .lightbox-container {
+      display: flex;
+      max-width: 1400px;
+      margin: 50px auto;
+      position: relative;
+      width: 90%;
+      box-sizing: border-box;
+      align-items: flex-start; /* keep images stacked from the top so first image is visible */
+      gap: 20px;
+      padding-bottom: 60px;
+    }
+
+    /* Images wrapper inside the lightbox */
+    .lightbox-images-container {
+      flex: 1;
+      overflow-y: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start; /* align items from top to avoid pushing first image out */
+      padding: 30px 0; /* breathing room */
+      scroll-padding-top: 30px;
+    }
+    .lightbox-images-container::-webkit-scrollbar { display: none; }
+
+    /* Stacked images — centered horizontally, start vertically */
+    .lightbox-images {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      min-height: 100%;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Each image sizes itself — prevents push/resize of container */
+    .lightbox-img {
+      max-width: 90%;
+      max-height: 90vh;
+      margin: 0 auto;
+      display: block;
+      object-fit: contain;
+      box-sizing: border-box;
+    }
+
+    /* Lightbox Text (unchanged) */
+    .lightbox-text {
+      width: 250px;
+      padding: 20px;
+      background: white;
+      position: sticky;
+      top: 50px;
+      align-self: flex-start;
+      border-left: 1px solid #eee;
+      height: fit-content;
+      margin-left: 20px;
+    }
+
+    .lightbox-text-inner { display: inline; }
+
+    /* Lightbox Close Button (unchanged) */
+    .lightbox-close {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      z-index: 2001;
+      width: 30px;
+      height: 30px;
+    }
+    .lightbox-close .bar { display: block; width: 100%; height: 3px; background: #fff; position: absolute; left: 0; transition: 0.3s; }
+    .lightbox-close .bar:nth-child(1) { top: 14px; transform: rotate(45deg); }
+    .lightbox-close .bar:nth-child(2) { opacity: 0; }
+    .lightbox-close .bar:nth-child(3) { top: 14px; transform: rotate(-45deg); }
+
+    /* Hamburger (unchanged) */
+    .menu-toggle { position: absolute; top: 20px; left: 20px; background: none; border: none; cursor: pointer; padding: 10px; z-index: 1000; width: 30px; height: 30px; }
+    .menu-toggle .bar { display: block; width: 100%; height: 3px; background: #333; position: absolute; left: 0; transition: 0.3s; }
+    .menu-toggle .bar:nth-child(1) { top: 0; }
+    .menu-toggle .bar:nth-child(2) { top: 14px; }
+    .menu-toggle .bar:nth-child(3) { top: 28px; }
+    .menu-toggle.active .bar:nth-child(1) { transform: rotate(45deg); top: 14px; }
+    .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle.active .bar:nth-child(3) { transform: rotate(-45deg); top: 14px; }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <aside class="left-menu collapsed" id="menu">
+      <nav>
+        <ul>
+          <li><button type="button" class="menu-btn" id="homeBtn">hello</button></li>
+          <li class="has-dropdown" id="workItem">
+            <button type="button" class="menu-btn" aria-expanded="false">work</button>
+            <div class="dropdown">
+              
+            </div>
+          </li>
+          <li class="has-dropdown" id="aboutItem">
+            <button type="button" class="menu-btn" aria-expanded="false">about</button>
+            <div class="dropdown">
+              Reno Voet known as: four is a Creative Technologist based in Seoul, South Korea. I do brand development, prototyping, and storytelling, using whatever tools it takes to shape the beauty your brand deserves. From print to motion, I love to build experiences that feel alive, playful, and unforgettable.With a diverse portfolio build up in the America, Netherlands, Korea and Japan.
+            </div>
+          </li>
+          <li class="has-dropdown" id="contactItem">
+            <button type="button" class="menu-btn" aria-expanded="false">contact</button>
+            <div class="dropdown">
+              Shohei Shohei Shigematsu is a partner at OMA based out of the New York office, who leads the firm's diverse portfolio in the Americas and Japan.
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="right-content">
+  <div class="header">
+    <div class="align-wrapper">
+      <a href="#" id="logoLink">
+        <img src="https://lh3.googleusercontent.com/d/17yyNeEpa9_xJ913p7SaxEynGgO2w7KGW=w1200" alt="four Logo" />
+      </a>
+
+          
+          </div>
+
+        <div class="work-category-menu" id="headerWorkMenu">
+          <button type="button" class="submenu-btn" data-filter="all">all</button>
+          <button type="button" class="submenu-btn" data-filter="print">print</button>
+          <button type="button" class="submenu-btn" data-filter="digital">digital</button>
+          <button type="button" class="submenu-btn" data-filter="product">product design</button>
+        </div>
+        </div>
+
+      <div class="content-area" id="contentArea">
+        <div class="align-wrapper">
+          <div class="video-wrapper">
+            <video autoplay muted loop>
+              <source src="https://framerusercontent.com/assets/CtSYQwWgD3v3HDe3HMRPnHbvGOk.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <div class="lightbox-container">
+        <div class="lightbox-images-container">
+          <div class="lightbox-images"></div>
+        </div>
+
+        <div class="lightbox-text">
+          <div class="lightbox-text-inner">
+            Shohei Shohei Shigematsu is a partner at OMA based out of the New York office, who leads the firm's diverse portfolio in the Americas and Japan.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="images.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menu = document.getElementById('menu');
+      const menuToggle = document.getElementById('menuToggle');
+      const contentArea = document.getElementById('contentArea');
+      const homeBtn = document.getElementById('homeBtn');
+      const workBtn = document.querySelector('#workItem .menu-btn');
+      const initialVideoURL = "https://framerusercontent.com/assets/CtSYQwWgD3v3HDe3HMRPnHbvGOk.mp4";
+      const sidebarWorkSubmenus = document.querySelectorAll('#workItem .submenu-btn'); // Existing sidebar buttons
+      const headerWorkMenu = document.getElementById('headerWorkMenu'); // Reference to the NEW header menu container
+      const headerWorkSubmenus = document.querySelectorAll('#headerWorkMenu .submenu-btn'); // NEW header buttons
+
+
+      function syncButton() {
+        const open = !menu.classList.contains('collapsed');
+        menuToggle.classList.toggle('active', open);
+        menuToggle.setAttribute('aria-expanded', String(open));
+      }
+      syncButton();
+
+      menuToggle.addEventListener('click', () => {
+        menu.classList.toggle('collapsed');
+        syncButton();
+      });
+
+      const nav = menu.querySelector('nav');
+      nav.addEventListener('click', (e) => {
+        const btn = e.target.closest('.menu-btn');
+        if (!btn) return;
+
+        // If clicked the top-level work button — load work content (all)
+        if (btn === workBtn) {
+          loadWorkContent('all');
+          const item = btn.closest('.has-dropdown');
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+          return;
+        }
+
+        // If menu is collapsed and any button pressed, expand it for accessibility
+        if (menu.classList.contains('collapsed')) {
+          menu.classList.remove('collapsed');
+          syncButton();
+        }
+
+        const item = btn.closest('.has-dropdown');
+        if (!item) return;
+
+        const isOpen = item.classList.contains('open');
+        // Close all others
+        nav.querySelectorAll('.has-dropdown').forEach(li => {
+          li.classList.remove('open');
+          const b = li.querySelector('.menu-btn');
+          if (b) b.setAttribute('aria-expanded', 'false');
+        });
+        // Toggle this one
+        item.classList.toggle('open', !isOpen);
+        btn.setAttribute('aria-expanded', String(!isOpen));
+      });
+
+      function loadHomeContent() {
+        contentArea.innerHTML = `
+          <div class="align-wrapper">
+            <div class="video-wrapper">
+              <video autoplay muted loop>
+                <source src="${initialVideoURL}" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        `;
+        headerWorkMenu.classList.remove('is-active'); // HIDE THE HEADER MENU
+      }
+
+      function loadWorkContent(filter = 'all') {
+        // getFilteredImages is defined in images.js
+        const filteredImages = getFilteredImages(filter);
+
+        const imagesHTML = filteredImages.map(img =>
+          `<img src="${img.src}" alt="${img.alt}" data-category="${img.categories.join(',')}">`
+        ).join('');
+
+        // script for the iframe; note the closing SCRIPT tag is escaped
+        const iframeScript = `
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              const images = document.querySelectorAll('.work-gallery img');
+              images.forEach((img) => {
+                img.addEventListener('click', function() {
+                  window.parent.postMessage({
+                    type: 'openLightbox',
+                    src: this.src
+                  }, '*');
+                });
+              });
+            });
+          <\/script>
+        `;
+
+        const workHTML = `
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width,initial-scale=1" />
+            <style>
+             html,body { margin: 0; padding: 20px 20px 10px 0; box-sizing: border-box; font-family: inherit; background: white; }
+             .work-gallery { column-count: 3; column-gap: 5px; width: 100%; }
+             .work-gallery img {
+             width: 100%;
+             height: auto;
+             max-width: 100%;
+             margin: 0 0 5px 0;
+             display: block;
+             break-inside: avoid;
+             cursor: pointer;
+              }
+              @media (max-width: 1024px) { .work-gallery { column-count: 2; } }
+              @media (max-width: 768px) { .work-gallery { column-count: 1; } }
+            </style>
+          </head>
+          <body>
+            <div class="work-gallery">
+              ${imagesHTML}
+            </div>
+            ${iframeScript}
+          </body>
+          </html>
+        `;
+
+        const workDataURL = "data:text/html;charset=utf-8," + encodeURIComponent(workHTML);
+        contentArea.innerHTML = `
+          <div class="align-wrapper">
+            <div class="work-iframe-wrapper">
+              <iframe src="${workDataURL}" frameborder="0"></iframe>
+            </div>
+          </div>
+        `;
+        headerWorkMenu.classList.add('is-active'); // SHOW THE HEADER MENU
+      }
+
+      // initial bindings
+      homeBtn.addEventListener('click', loadHomeContent);
+      document.getElementById('logoLink').addEventListener('click', (e) => {
+        e.preventDefault();
+        loadHomeContent();
+      });
+
+      workBtn.addEventListener('click', () => {
+        loadWorkContent('all');
+      });
+      
+      // Bind functionality to BOTH sets of work category buttons
+      const allWorkSubmenus = [...sidebarWorkSubmenus, ...headerWorkSubmenus];
+
+      allWorkSubmenus.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const filter = btn.dataset.filter;
+          loadWorkContent(filter);
+        });
+      });
+
+      // load home content initially
+      loadHomeContent();
+    });
+  </script>
+
+  <script src="lightbox.js"></script>
+</body>
+</html>
