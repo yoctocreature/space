@@ -101,7 +101,7 @@ const images = [
         src: "https://lh3.googleusercontent.com/d/1eHsnGo3XG8R9-gItEXHnWNNzkwf4M9Gy=w1200",
         alt: "Guns'N'Roses",
         categories: ["digital"],
-        group: ["https://lh3.googleusercontent.com/d/1bv1-8DTuKQjDJV3ixN6IOK9CrP68qg79=w1200"],
+        group: ["https://lh3.googleusercontent.com/d/1r3ST_xMvs3HW8MqY060e-e2S4JxkdOV-=w1200"],
         text: "Guns N' Roses, the iconic American hard rock band of the late '80s, soared to fame with Axl Rose, Slash, and Duff McKagan, delivering raw energy and anthems like 'Sweet Child o' Mine.' Their 'Appetite for Destruction' remains a best-seller, solidifying their legendary status. Fans can rejoice as the band will embark on a highly anticipated 2026 tour, promising another high-octane spectacle, delivering timeless hits and fierce energy to their global fanbase."
     },
      {
