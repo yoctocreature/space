@@ -98,7 +98,7 @@ const images = [
     },
   
  {
-        src: "https://lh3.googleusercontent.com/d/1eHsnGo3XG8R9-gItEXHnWNNzkwf4M9Gy=w1200",
+        src: "https://lh3.googleusercontent.com/d/1OA6wpWPDOEe1ieDbiY6CRrvQmt8eb2Xi=w1200",
         alt: "Guns'N'Roses",
         categories: ["digital"],
         group: ["https://lh3.googleusercontent.com/d/1r3ST_xMvs3HW8MqY060e-e2S4JxkdOV-=w1200"],
