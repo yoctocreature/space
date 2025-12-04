@@ -158,7 +158,7 @@ text: "SIT is a peer-to-peer mobile application for high-density, unreserved tra
     },
 
   
- { src: "https://lh3.googleusercontent.com/d/12yh7OmQPdnBEHswGDG6-6HqUXB12-zOM=w1200",
+ { src: "https://lh3.googleusercontent.com/d/1OA6wpWPDOEe1ieDbiY6CRrvQmt8eb2Xi=w1200",
         alt: "F*ck That Smile",
         categories: ["digital"],
         group: ["https://lh3.googleusercontent.com/d/1bv1-8DTuKQjDJV3ixN6IOK9CrP68qg79=w1200",
