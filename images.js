@@ -16,7 +16,7 @@ const images = [
     },
 
    { src: "https://lh3.googleusercontent.com/d/1h53yVH300O2rcVDOcqkAyTQ3lclzUs3g=w1200",
-        alt: "Think",
+        alt: "Alive",
         categories: ["print", "digital"],
         group: ["https://lh3.googleusercontent.com/d/1bv1-8DTuKQjDJV3ixN6IOK9CrP68qg79=w1200"],
         text: "3 - This is the custom text that will appear in the lightbox."
@@ -24,7 +24,7 @@ const images = [
         
 {
         src: "https://lh3.googleusercontent.com/d/1OA6wpWPDOEe1ieDbiY6CRrvQmt8eb2Xi=w1200",
-        alt: "30DII",
+        alt: "Mayi",
         categories: ["print"],
         group: ["https://lh3.googleusercontent.com/d/15FTIUfeVcqKgX-D7WNouuUOAzcj-2VRC=w1200",
             "https://lh3.googleusercontent.com/d/1kEALBwWjwUwCIXXtLOPIFRjghW6zi3gD=w1200",
