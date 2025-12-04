@@ -46,8 +46,8 @@ const images = [
     },
   
   {
-        src: "https://lh3.googleusercontent.com/d/1PXKgsT4wJTHYtTM6AEO2JrviddGzrMlH=w1200",
-        alt: "Jolly Roger, Waves The White Flag",
+        src: "https://lh3.googleusercontent.com/d/1PmkU5DW_7-MrPok_TbfqkG73O1nGwxzh=w1200",
+        alt: "LOYQU",
         categories: ["3d"],
         group: ["https://lh3.googleusercontent.com/d/1z5hlLZvZ7E89QKkdwBOegW3u45UeAJqx=w1200",
             "https://lh3.googleusercontent.com/d/1Q6AyJgcSu3-xw_O13a8bnkl_QyzhelBz=w1200",
