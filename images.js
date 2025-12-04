@@ -23,7 +23,7 @@ const images = [
     },
         
 {
-        src: "https://lh3.googleusercontent.com/d/1-IfFsOem4_uFoWHL7x0gUz-Nkk8s-Bu8=w1200",
+        src: "https://lh3.googleusercontent.com/d/1OA6wpWPDOEe1ieDbiY6CRrvQmt8eb2Xi=w1200",
         alt: "30DII",
         categories: ["print"],
         group: ["https://lh3.googleusercontent.com/d/15FTIUfeVcqKgX-D7WNouuUOAzcj-2VRC=w1200",
