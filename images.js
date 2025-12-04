@@ -148,7 +148,7 @@ text: "SIT is a peer-to-peer mobile application for high-density, unreserved tra
  
 {
         src: "https://lh3.googleusercontent.com/d/1r8dOTlHw6ujHNVXsOywokbO0nFP5-zcV=w1200",
-        alt: "Polyspot",
+        alt: "Intellectus",
         categories: ["product design", "digital"],
         group: ["https://lh3.googleusercontent.com/d/1qnW1cFUEsYKX1RdIM5KOKpBahhViYXez=w1200",
             "https://lh3.googleusercontent.com/d/1s_MAOrC2y8wTnnRGB-eUiq2uy1eQVCNa=w1200",
