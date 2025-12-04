@@ -82,8 +82,8 @@ const images = [
     },
  
 {
-        src: "https://lh3.googleusercontent.com/d/1AdUvGtMf8am8vdEvKlYeGbiECrhO24KA=w1200",
-        alt: "Glass_tooth",
+        src: "https://lh3.googleusercontent.com/d/169j-k49zKNaotjqi_X8uSnlK8QOT_yDm=w1200",
+        alt: "smartmeter",
         categories: ["digital"],
         group: ["https://lh3.googleusercontent.com/d/1bv1-8DTuKQjDJV3ixN6IOK9CrP68qg79=w1200"],
         text: "10 - This is the custom text that will appear in the lightbox."
