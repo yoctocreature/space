@@ -59,8 +59,8 @@ const images = [
     },
   
 {
-        src: "https://lh3.googleusercontent.com/d/1xhY84kuP02c1qq7ahx5Q44KfFfU-bLJu=w1200",
-        alt: "PLAUAT App",
+        src: "https://lh3.googleusercontent.com/d/1WiTS2F9g_l1hLvzgNC4RyxjNjn3D_f7t=w1200",
+        alt: "pagas_test",
         categories: ["product design", "digital"],
         group: ["https://lh3.googleusercontent.com/d/1bv1-8DTuKQjDJV3ixN6IOK9CrP68qg79=w1200"],
         text: "7 - This is the custom text that will appear in the lightbox."
