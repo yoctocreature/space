@@ -58,8 +58,8 @@ const images = [
         text: "Jolly Roger, Waves the White Flag is not merely a collection of civic emblems; it is a crucible of profound cultural inquiry. Over the span of its singular, intense exploration, this book draws the reader into a shared, accelerated current, where each state flag unfurls a new task—a concentrated pulse challenging our immediate intuition about national identity and its aesthetic codification. These urgent responses—these visual murmurs and symbolic whispers of history—are then meticulously woven into a singular, tactile volume: a book blooming with both evocative imagery and incisive prose. The core inquiry of Jolly Roger, Waves the White Flag lies in this deliberate compression: to sculpt meaning within the pressure cooker of vexillological critique, to witness the raw, divergent bloom of civic self-perception when history, that most relentless of muses, demands an immediate answer regarding the banners we fly."
     },
   {
-        src: "https://lh3.googleusercontent.com/d/1xhY84kuP02c1qq7ahx5Q44KfFfU-bLJu=w1200",
-        alt: "PLAUAT App",
+        src: "https://lh3.googleusercontent.com/d/1JmyrSOZ6J-1OU1hkkQa_NMOgOykEGMOi=w1200",
+        alt: "Daegaya",
         categories: ["product design", "digital"],
         group: ["https://lh3.googleusercontent.com/d/1bv1-8DTuKQjDJV3ixN6IOK9CrP68qg79=w1200"],
         text: "7 - This is the custom text that will appear in the lightbox."
