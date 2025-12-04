@@ -15,7 +15,7 @@ const images = [
 
     },
 
-   { src: "https://lh3.googleusercontent.com/d/1PvqBPlD0JysbDoav79Zoa0SeXRkVCH95=w1200",
+   { src: "https://lh3.googleusercontent.com/d/1h53yVH300O2rcVDOcqkAyTQ3lclzUs3g=w1200",
         alt: "Think",
         categories: ["print", "digital"],
         group: ["https://lh3.googleusercontent.com/d/1bv1-8DTuKQjDJV3ixN6IOK9CrP68qg79=w1200"],
