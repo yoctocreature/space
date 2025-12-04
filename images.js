@@ -38,8 +38,8 @@ const images = [
   },
 
 {
-        src: "https://lh3.googleusercontent.com/d/1NhuBTVYigNda4gX7SjaG1AnYxWhwlfoe=w1200",
-        alt: "Space Invaders",
+        src: "https://lh3.googleusercontent.com/d/1kkPpsA3RYKCurpEQHjVo61jKucUkS-3z=w1200",
+        alt: "carmerce",
         categories: ["print", "digital"],
         group: ["https://lh3.googleusercontent.com/d/1bv1-8DTuKQjDJV3ixN6IOK9CrP68qg79=w1200"],
         text: "Space Invaders, the iconic 1978 arcade phenomenon, specializes in delivering relentless alien invasion and groundbreaking electronic challenge. Its core philosophy, driven by a visually simple, pixelated aesthetic, centers on addictive gameplay and escalating tension for endless replayability. Emphasizing immediate action, strategic cover, and iconic sound, Space Invaders features descending alien formations and laser cannons in a stark, unforgettable battleground, enhancing your reflexes with timeless thrills and a foundational gaming experience."
