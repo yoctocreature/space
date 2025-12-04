@@ -147,8 +147,8 @@ text: "SIT is a peer-to-peer mobile application for high-density, unreserved tra
   
  
 {
-        src: "https://lh3.googleusercontent.com/d/1r8dOTlHw6ujHNVXsOywokbO0nFP5-zcV=w1200",
-        alt: "Intellectus",
+        src: "https://lh3.googleusercontent.com/d/1zeG90aG4xA4CM8iY5dYV7sagPsuXFYDb=w1200",
+        alt: "cellbion",
         categories: ["product design", "digital"],
         group: ["https://lh3.googleusercontent.com/d/1qnW1cFUEsYKX1RdIM5KOKpBahhViYXez=w1200",
             "https://lh3.googleusercontent.com/d/1s_MAOrC2y8wTnnRGB-eUiq2uy1eQVCNa=w1200",
@@ -170,8 +170,8 @@ text: "SIT is a peer-to-peer mobile application for high-density, unreserved tra
      text: "'f*ck that smile' is a personal odyssey: a defiant, raw view of self, rejecting external happiness for intensely personal truth. The artist's promise is self-provided happiness. Set in the introspective mountains of Castlenuovo Di Garfagnana and busy Tokyo, it follows an alien stranded on Earth after a crash. This wanderer seeks belonging but finds no solace. More than music, it's a profound inner struggle—physical displacement mirroring emotional rift. Each frame echoes defiance, inviting audiences to see the difficult path to authentic self-acceptance. f*ck that smile: The only smile that matters is your own."
     },
 
-{ src: "https://lh3.googleusercontent.com/d/1j9CGeOUhwHnYE1JNWCfQlpXl1ATJZWTh=w1200",
-        alt: "Yaksu",
+{ src: "https://lh3.googleusercontent.com/d/1r8dOTlHw6ujHNVXsOywokbO0nFP5-zcV=w1200",
+        alt: "intellectus",
         categories: ["digital"],
         group: ["https://lh3.googleusercontent.com/d/1bv1-8DTuKQjDJV3ixN6IOK9CrP68qg79=w1200"],
         text: "19 - This is the custom text that will appear in the lightbox."
