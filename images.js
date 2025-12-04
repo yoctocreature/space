@@ -90,8 +90,8 @@ const images = [
     },
         
  {
-        src: "https://lh3.googleusercontent.com/d/1LHJU0gas_N5T2cZbtnIcpU3ySLtd6drf=w1200",
-        alt: "Jerrican",
+        src: "https://lh3.googleusercontent.com/d/1r1GZFDtBMU3ILyWm3KjV9f_3SBVSCYUc=w1200",
+        alt: "Jerry",
         categories: ["print", "digital"],
         group: ["https://lh3.googleusercontent.com/d/1bv1-8DTuKQjDJV3ixN6IOK9CrP68qg79=w1200"],
         text: "Jerrican eyewear elevates your style with contemporary design and timeless elegance. Each meticulously crafted frame offers unparalleled clarity and flair, engineered for lightweight comfort, exceptional durability, and a perfect everyday fit. Discover Jerrican: eyewear that truly reflects your ambition, leisure, and unmistakable charm. See the style. Feel the difference."
