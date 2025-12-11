@@ -23,7 +23,7 @@ const images = [
     },
         
 {
-        src: "https://lh3.googleusercontent.com/d/1WiTS2F9g_l1hLvzgNC4RyxjNjn3D_f7t=w1200",
+        src: "https://lh3.googleusercontent.com/d/1O3bQBQb6NF1WyieL_cEUijXwccE0h5mt=w1200",
         alt: "Pagas",
         categories: ["print"],
         group: ["https://lh3.googleusercontent.com/d/15FTIUfeVcqKgX-D7WNouuUOAzcj-2VRC=w1200",
