@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="text/javascript">
+    (function() {
+      const isPhoneUA = /iPhone|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      const isIPad = (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      const isSmallWidth = window.innerWidth <= 480;
+      if ((isPhoneUA && !isIPad) || isSmallWidth) {
+        window.location.replace("https://fourinspace.github.io/hello/mobile.html");
+      }
+    })();
+  </script>
+  <meta charset="utf-8" />
+  <title>四</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="lb122671.css">
+
+  <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/1UFrODqv45COGepKJ8zSOX1HVJYTz7GmC=w1200" />
+</head>
+
+<body>
+  <div class="container">
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+
+    <aside class="left-menu collapsed" id="menu">
+      <nav>
+        <ul>
+          <li><button type="button" class="menu-btn" id="homeBtn">hello</button></li>
+          <li class="has-dropdown" id="workItem">
+            <button type="button" class="menu-btn">work</button>
+            <div class="dropdown"></div>
+          </li>
+          <li id="aboutItem"> 
+            <button type="button" class="menu-btn">about</button> 
+            <div class="dropdown">
+              Reno Voet — aka Four — is a Creative Technologist based in Seoul, South Korea. I do brand development, visualizing, and storytelling, using whatever tools it takes to shape the beauty a brand deserves. From print to motion, I love to build experiences that feel alive, playful, and connection.With a diverse portfolio built in America, Netherlands, Korea and Japan.
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <li id="contactItem"> 
+        <button type="button" class="menu-btn">contact</button> 
+        <div class="dropdown">
+          Scan the QR code for my digital business card
+          <img src="https://lh3.googleusercontent.com/d/1xFwXwOs0G0o26GUyVcGkXAT5j-gXdvrx=w1200" alt="QR Code" class="contact-qr-code">
+        </div>
+      </li>
+    </aside>
+
+    <main class="right-content">
+      <div class="header">
+        <div class="align-wrapper">
+          <a href="#" id="logoLink">
+            <img src="https://lh3.googleusercontent.com/d/17yyNeEpa9_xJ913p7SaxEynGgO2w7KGW=w1200" alt="four Logo" />
+          </a>
+        </div>
+        <div class="work-category-menu" id="headerWorkMenu">
+          <button type="button" class="submenu-btn" data-filter="all">all</button>
+          <button type="button" class="submenu-btn" data-filter="print">print</button>
+          <button type="button" class="submenu-btn" data-filter="digital">digital</button>
+          <button type="button" class="submenu-btn" data-filter="product">product design</button>
+        </div>
+      </div>
+
+      <div class="content-area" id="contentArea"></div>
+    </main>
+
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+      <button class="lightbox-close" id="lightboxClose">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <div class="lightbox-container">
+        <div class="lightbox-images-container"><div class="lightbox-images"></div></div>
+        <div class="lightbox-text"><div class="lightbox-text-inner"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="images.js"></script>
+  <script src="main.js"></script>
+  <script src="lb122671.js"></script>
+</body>
+</html>

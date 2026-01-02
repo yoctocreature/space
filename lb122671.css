@@ -1,0 +1,119 @@
+/* GLOBAL LIGHTBOX FONT */
+body, button, input, textarea {
+  font-family: 'Open Sans', sans-serif !important;
+}
+
+/* CONTAINER STYLING */
+#lightbox .lightbox-images-container {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px 0;
+}
+
+#lightbox .lightbox-images {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  align-items: center;
+}
+
+/* SHARED MEDIA SIZING */
+#lightbox .lightbox-img, 
+#lightbox .video-wrapper {
+  width: 90% !important;               
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+  display: block !important;
+  border: none !important;
+}
+
+#lightbox .lightbox-img {
+  height: auto;
+}
+
+/* VIDEO WRAPPER & IFRAME */
+#lightbox .video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; 
+  height: 0;
+  overflow: hidden;
+  background: #fff;
+}
+
+#lightbox .video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  border: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  z-index: 2;
+}
+
+#lightbox .video-wrapper iframe.loaded {
+  opacity: 1;
+}
+
+/* CENTERED PIXEL LOADER UI */
+#lightbox .pixel-loader-ui {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+
+#lightbox .pixel-label {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  color: #000;
+}
+
+#lightbox .pixel-bar-outline {
+  width: 180px;
+  height: 16px;
+  border: 3px solid #000;
+  padding: 2px;
+  background: #fff;
+  box-sizing: content-box;
+}
+
+#lightbox .pixel-bar-fill {
+  height: 100%;
+  background: #000;
+  width: 0%;
+  animation: fillBar 4s steps(15) infinite; 
+}
+
+@keyframes fillBar {
+  0% { width: 0%; }
+  70% { width: 100%; }
+  100% { width: 100%; }
+}
+
+/* SIDEBAR TEXT */
+#lightbox .lightbox-text {
+  width: 250px;
+  padding: 20px;
+  background: white;
+  position: sticky;
+  top: 50px;
+  align-self: flex-start;
+  border-left: 1px solid #eee;
+  margin-left: 20px;
+}

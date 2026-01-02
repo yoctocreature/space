@@ -1,0 +1,291 @@
+:root {
+  --menu-open: 250px;
+  --menu-collapsed: 60px;
+  --menu-pad: 20px;
+  --header-height: 80px;
+  --page-gutter: 20px;
+  --header-bg-rgb: 255, 255, 255;
+  --header-bg-opacity: 0.5;
+}
+
+/* Layout */
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+.left-menu {
+  width: var(--menu-open);
+  background: #fff;
+  transition: width 0.3s ease, padding 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  padding: var(--menu-pad);
+}
+
+.left-menu.collapsed {
+  width: var(--menu-collapsed);
+  padding: var(--menu-pad) 5px;
+}
+
+.left-menu nav { 
+  margin-top: 100px;
+  height: calc(100vh - 100px - var(--menu-pad)); 
+  overflow-y: auto;
+  padding-bottom: 100px;
+}
+
+.left-menu.collapsed nav { display: none; }
+.left-menu ul { list-style: none; padding: 0; margin: 0; }
+.left-menu li { margin-bottom: 6px; position: relative; }
+
+.menu-btn {
+  background: none;
+  border: none;
+  padding: 5px 0;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  color: #333;
+  font: inherit;
+  display: block;
+  user-select: none;
+}
+
+.dropdown {
+  font-size: 14px;
+  color: #333;
+  margin-top: 8px;
+  padding-left: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.left-menu li.open .dropdown { 
+  max-height: 800px; 
+  overflow: visible;
+  transition: none;
+}
+
+#contactItem {
+  list-style: none;
+  position: absolute;
+  bottom: var(--menu-pad); 
+  left: var(--menu-pad);
+  width: calc(100% - (var(--menu-pad) * 2));
+  z-index: 10;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+
+.left-menu.collapsed #contactItem {
+  display: none;
+}
+
+#contactItem .contact-qr-code {
+  max-width: 120px; 
+  height: auto;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#contactItem .dropdown p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Work dropdown specific styling */
+#workItem .dropdown {
+  white-space: normal;
+  padding-left: 0;
+  line-height: 1.4;
+}
+
+#workItem .dropdown .submenu-row {
+  display: block;
+  margin-bottom: 4px;
+}
+
+#workItem .dropdown .submenu-btn,
+.header .submenu-btn {
+  background: none;
+  border: none;
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  color: #333;
+  display: inline;
+  font-family: inherit;
+}
+
+#workItem .dropdown .submenu-btn:not(:last-child)::after,
+.header .submenu-btn:not(:last-child)::after {
+  content: "•";
+  margin-right: 8px;
+  margin-left: 8px;
+  color: #555;
+}
+
+/* Right content layout */
+.right-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: auto;
+  background: rgba(var(--header-bg-rgb), var(--header-bg-opacity));
+  z-index: 100;
+  position: sticky;
+  top: 0;
+  padding: 0;
+}
+
+.header .align-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: var(--page-gutter);
+  padding-right: var(--page-gutter);
+}
+
+.header img {
+  width: 150px;
+  height: auto;
+  display: block;
+}
+
+.work-category-menu {
+  display: none;
+  align-items: center;
+  line-height: 1.4;
+  white-space: nowrap;
+  width: 100%;
+  padding: 0 var(--page-gutter) 10px 10px;
+  box-sizing: border-box;
+}
+
+.work-category-menu.is-active {
+  display: flex;
+}
+
+/* Content Area */
+.content-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+.align-wrapper {
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: var(--page-gutter);
+  padding-right: var(--page-gutter);
+}
+
+/* --- UPDATED VIDEO/IFRAME WRAPPER --- */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+/* Now targets both video tags AND iframes to ensure full fit */
+.video-wrapper video,
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+}
+
+/* Work iframe wrapper (The gallery container) */
+.work-iframe-wrapper {
+  height: calc(100vh - 120px);
+  width: calc(100% + 40px);
+  border: none;
+  overflow: hidden;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.work-iframe-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+}
+
+/* Lightbox base */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow-y: auto;
+}
+
+.lightbox-container {
+  display: flex;
+  max-width: 1400px;
+  margin: 50px auto;
+  position: relative;
+  width: 90%;
+  box-sizing: border-box;
+  align-items: flex-start;
+  gap: 20px;
+  padding-bottom: 60px;
+}
+
+/* UI Elements */
+.lightbox-close {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 2001;
+  width: 30px;
+  height: 30px;
+}
+
+.lightbox-close .bar { display: block; width: 100%; height: 3px; background: #fff; position: absolute; left: 0; transition: 0.3s; }
+.lightbox-close .bar:nth-child(1) { top: 14px; transform: rotate(45deg); }
+.lightbox-close .bar:nth-child(2) { opacity: 0; }
+.lightbox-close .bar:nth-child(3) { top: 14px; transform: rotate(-45deg); }
+
+.menu-toggle { position: absolute; top: 20px; left: 20px; background: none; border: none; cursor: pointer; padding: 10px; z-index: 1000; width: 30px; height: 30px; }
+.menu-toggle .bar { display: block; width: 100%; height: 3px; background: #333; position: absolute; left: 0; transition: 0.3s; }
+.menu-toggle .bar:nth-child(1) { top: 0; }
+.menu-toggle .bar:nth-child(2) { top: 14px; }
+.menu-toggle .bar:nth-child(3) { top: 28px; }
+.menu-toggle.active .bar:nth-child(1) { transform: rotate(45deg); top: 14px; }
+.menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+.menu-toggle.active .bar:nth-child(3) { transform: rotate(-45deg); top: 14px; }
