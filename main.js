@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const homeBtn = document.getElementById('homeBtn');
   const workBtn = document.querySelector('#workItem .menu-btn');
   // Updated to the Vimeo URL you provided
-  const initialVideoURL = "https://player.vimeo.com/video/1150963952?background=1&autoplay=1&loop=1&muted=1";
+  const initialVideoURL = "https://player.vimeo.com/video/1150973406?background=1&autoplay=1&loop=1&muted=1";
   const headerWorkMenu = document.getElementById('headerWorkMenu'); 
   const aboutItem = document.getElementById('aboutItem');
   const contactItem = document.getElementById('contactItem');
