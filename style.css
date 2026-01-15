@@ -165,7 +165,7 @@
 
 .header img {
   width: 230px;
-  height: 62px;
+  height:auto;
   display: block;
 }
 
