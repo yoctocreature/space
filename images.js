@@ -212,7 +212,7 @@ text: "SIT is a peer-to-peer mobile application for high-density, unreserved tra
 
         
 {
-        src: "https://lh3.googleusercontent.com/d/1YkYFncv1MhxGUAwpY1LcoO-XM__HQp1D=w1200",
+        src: "https://lh3.googleusercontent.com/d/1r3abfmrKQJKiPHofk4WtjS7OzRo3kkUq=w1200",
         alt: "Ballsy",
         categories: ["product design", "digital"],
          group: ["https://lh3.googleusercontent.com/d/1Ju2KsoA5I0OlfOrzHaRF5akVRP1tVzhX=w1200",
